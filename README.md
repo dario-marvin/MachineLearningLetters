@@ -46,7 +46,8 @@ Accuracy of SVM classifier on training set: 0.999405999406
 Accuracy of SVM classifier on test set: 0.977
 ```
 
-```             precision    recall  f1-score   support
+```
+             precision    recall  f1-score   support
 
           a       1.00      1.00      1.00        38
           b       1.00      0.95      0.97        41
