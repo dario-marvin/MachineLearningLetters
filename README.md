@@ -113,8 +113,9 @@ avg / total       0.99      0.99      0.99      1000
 
 ```
 
-
-## Further experiments
+<p align="center">
+  <img src="https://github.com/dario-marvin/MachineLearningLetters/blob/master/wrong_predictions.png">
+</p>
 
 
 ## Conclusion and future works
