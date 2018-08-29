@@ -1,5 +1,5 @@
 # MachineLearningLetters
-# Work still in progress
+# !!! Work still in progress !!!
 
 ## Introduction
 The idea of this project is to try to solve a simulated real life problem with the help of Machine Learning (ML) techniques and a dataset created ad hoc: suppose you have to digitalise and extract information from some documents, and a high quality scanner is not available, or high quality scans are too expensive, in terms of scanning time or storage memory. Is it then still possible to recover the information contained on the (bad) scans? 
