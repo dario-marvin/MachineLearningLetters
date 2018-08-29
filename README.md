@@ -9,24 +9,24 @@ We continue with the idea firstly explored in the repository [MachineLearningDig
 We basically follow the same idea of the [previous repository](https://github.com/dario-marvin/MachineLearningDigits). A sequence of 4367 random single lowercase letters is generated and compiled on a A4 sheet with LaTeX. The paper sheet is then printed, scanned at 75 dpi and saved as PNG in the file [page1.png](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png).
 
 ### Dataset extraction
+There are a few differences with the previous approach: this time we use a minimum pixel value threshold instead of a men to decided wheter a row or clumn contains dark pixels or not.
 
+Also, everytime we find the start of a letter we search on the adjacent right columns if they also contain dark pixels, to finally retrieve how long a letter is. we then fill the sides upon reaching a universal width of 7 pixels for every letter image.
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningLetters/blob/master/all_letters.png">
 </p>
 
-
-
 ### Data analysis
 
-Since it is well known there is not a perfect general learning algorithm for every problem, we explore many different approaches and select the best one for this problem according to the results. We try some of the most common methods for ML classification, including:
+We explore some of the most common methods for ML classification and select the best one for this problem according to the results. We try:
 - Decision tree learning (DT)
 - k-nearest neighbors algorithm (KNN)
 - Linear discriminant analysis (LDA)
 - Gaussian naive Bayes (GNB)
 - Support Vector Machines (SVM)
 
-For each of these approaches we train a classifier using the first 3290 images, which will compose our Training Set, then we
+For each of these approaches we train a classifier using the first 3367 images, which will compose our Training Set, then we
 ask the model to make a prediction on the value of the remaining 1000 images, which will be our Test Set. We finally compare the predictions with the real values.
 
 ## Results
@@ -47,6 +47,9 @@ Accuracy of GNB classifier on test set: 0.876
 Accuracy of SVM classifier on training set: 0.999405999406
 Accuracy of SVM classifier on test set: 0.977
 ```
+<p align="center">
+  <img src="https://github.com/dario-marvin/MachineLearningLetters/blob/master/comparison.png">
+</p>
 
 ```
              precision    recall  f1-score   support
