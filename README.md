@@ -1,5 +1,4 @@
 # MachineLearningLetters
-# !!! Work still in progress !!!
 
 ## Introduction
 We continue with the idea explored in the repository [MachineLearningDigits](https://github.com/dario-marvin/MachineLearningDigits): we intend to digitalise a badly scanned document using supervised Machine Learning (ML) approaches. Back then we considered only pixelated images of digits to verify that such an idea was actually practicable. Having obtained good results, we now want analyze single letters. If this works too, it will be easy to implement a working OCR, provided we will be able to succesfully separate the letters composing the words.
