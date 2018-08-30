@@ -20,7 +20,7 @@ So, in each stripe we also compute the min pixel value for each column until we 
 
 ### Data analysis
 
-We explore some of the most common methods for ML classification and select the best one for this problem according to the results. We try:
+We explore some of the most common methods for ML classification and select the best one for this problem according to the results. As before, we try:
 - Decision tree learning (DT)
 - k-nearest neighbors algorithm (KNN)
 - Linear discriminant analysis (LDA)
