@@ -9,7 +9,11 @@ We continue with the idea firstly explored in the repository [MachineLearningDig
 We basically follow the same idea of the [previous repository](https://github.com/dario-marvin/MachineLearningDigits). A sequence of 4367 random single lowercase letters is generated and compiled on a A4 sheet with LaTeX. The paper sheet is then printed, scanned at 75 dpi and saved as PNG in the file [page1.png](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png).
 
 ### Dataset extraction
-There are a few differences with the previous approach: this time we use a minimum pixel value threshold instead of a men to decided wheter a row or clumn contains dark pixels or not.
+There are a few differences with the ideas we used in the previous analysis: in the case of digits, all the _images_ were equally tall accross all digits, so the mean pixel value over the row was a practical idea. Here instead some letters, such as "t", "l" or "f" are taller than others and protend upward, while some other protend downward instead, such as "p", "q" and "g". In particolar, the letter "j" sticks out in both ways. So the mean pixel value over each row was not appliable here and we used a min pixel value over the whole row instead.
+
+Similarly, all digits were also equally spaced in width, while for the letters "w" and "m" are clearly larger than "i" or "l".
+For this, since the larger letters can fit in a 7 pixels wide space, we decided to set universal width 7 pixels for each image. 
+So, in each stripe we also compute the min pixel value for each column until we find some dark pixels, and then we count how many columns in the immediate right also contain dark pixels. With this proceeding we can find the width of every letter and since the spaces between letters are usually composed of at least 3 clear columns and each letter is composed of at least 2 columns, we can fill the sides of the dark pixels with enough clear columns to reach an aimge of width 7 pixels.   
 
 Also, everytime we find the start of a letter we search on the adjacent right columns if they also contain dark pixels, to finally retrieve how long a letter is. we then fill the sides upon reaching a universal width of 7 pixels for every letter image.
 
