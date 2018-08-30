@@ -5,7 +5,7 @@ We continue with the idea explored in the repository [MachineLearningDigits](htt
 
 ## Methodology
 ### Document creation
-We basically follow the same idea of the [previous project](https://github.com/dario-marvin/MachineLearningDigits). A sequence of 4367 random single lowercase letters is generated and compiled on a A4 sheet with LaTeX. The document is then printed, scanned at 75 dpi and saved as PNG in the file [page1.png](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png).
+We basically follow the same idea of the [previous project](https://github.com/dario-marvin/MachineLearningDigits). A sequence of 4367 random single lowercase letters is generated and compiled on a A4 sheet with LaTeX. The font is then Computer Modern, the default LaTeX font. The document is then printed, scanned at 75 dpi and saved as PNG in the file [page1.png](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png).
 
 ### Dataset extraction
 There are a few differences with the ideas we used in the previous analysis: in the case of digits, all the images were equally tall across all digits, so the mean pixel value over the row was a practical idea. Here instead some letters, such as "t", "l" or "f" are taller than others and protend upward, while some other protend downward instead, such as "p", "q" and "g". In particolar, the letter "j" sticks out in both ways. So the mean pixel value over each row was not appliable here and to detect whether a row contained dark pixels or not we used a min pixel value over the whole row instead. We set at 9 pixels the height of each image, since 5 pixels are used for the central body of the letter, and 2 pixels on both above and below are used for the sticking out part, if present.
