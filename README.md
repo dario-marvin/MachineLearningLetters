@@ -14,6 +14,8 @@ There are a few differences with the ideas we used in the previous analysis: in 
 Similarly, all digits were also equally wide, while the letters "w" and "m" are clearly larger than "i" or "l". Since the larger letters can fit in a 7 pixels wide space, we decided to set universal width 7 pixels for each image. 
 So, in each stripe we also compute the min pixel value for each column until we find some dark pixels, and then we count how many columns in the immediate right also contain dark pixels. With this process we can find the width of every letter and since the space between letters is usually composed of 3 clear columns and each letter is composed of at least 2 columns, we can fill the sides of the dark pixels with enough clear columns to reach an imsge of width 7 pixels.   
 
+We plot here the first occurrence in the dataset of each letter.
+
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningLetters/blob/master/all_letters.png">
 </p>
@@ -27,8 +29,8 @@ We explore some of the most common methods for ML classification and select the 
 - Gaussian naive Bayes (GNB)
 - Support Vector Machines (SVM)
 
-For each of these approaches we train a classifier using the first 3367 images, which will compose our Training Set, then we
-ask the model to make a prediction on the value of the remaining 1000 images, which will be our Test Set. We finally compare the predictions with the real values.
+For each of these approaches we train the classifier using the first 3367 images, which will compose our Training Set, then we
+ask the model to make a prediction on the value of the remaining 1000 images, which will be our Test Set. We finally compare the predictions with the real values. As additional information, we also ask the classifier to predict the images in the Training Set, i.e. those it used to train itself.
 
 ## Results
 
@@ -51,6 +53,8 @@ Accuracy of SVM classifier on test set: 0.977
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningLetters/blob/master/comparison.png">
 </p>
+
+Once again, the k-nearest neighbors algorithm gives the best result, with only 12 wrong predictions over the 1000 tests. We print the classification report and the confusion matrix for this particular predictor and we also plot the 12 misclassified images.
 
 ```
              precision    recall  f1-score   support
@@ -118,6 +122,7 @@ avg / total       0.99      0.99      0.99      1000
   <img src="https://github.com/dario-marvin/MachineLearningLetters/blob/master/wrong_predictions.png">
 </p>
 
+Most of those images are missclassified because they show an alternance of clear and dark pixels, and because they are shifted one pixel lower than the usual image. These are most lokely faults due to the scan not being perfectly aligned, and some letters are displaced a bit lower than the center of the pixels stripe.
 
 ## Conclusion and future works
 
