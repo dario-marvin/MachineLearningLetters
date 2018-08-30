@@ -2,20 +2,17 @@
 # !!! Work still in progress !!!
 
 ## Introduction
-We continue with the idea firstly explored in the repository [MachineLearningDigits](https://github.com/dario-marvin/MachineLearningDigits): we intend to digitalise a badly scanned document using supervised Machine Learning (ML) approaches. Back then we considered only pixelated images of digits to verify such a proceeding was actually feasible. Having obtained good results we now analyze single letters. If this works too, it will be easy to implement a working OCR, provided we will be able to separate the letters composing words.
+We continue with the idea explored in the repository [MachineLearningDigits](https://github.com/dario-marvin/MachineLearningDigits): we intend to digitalise a badly scanned document using supervised Machine Learning (ML) approaches. Back then we considered only pixelated images of digits to verify that such an idea was actually practicable. Having obtained good results, we now want analyze single letters. If this works too, it will be easy to implement a working OCR, provided we will be able to succesfully separate the letters composing the words.
 
 ## Methodology
 ### Document creation
-We basically follow the same idea of the [previous repository](https://github.com/dario-marvin/MachineLearningDigits). A sequence of 4367 random single lowercase letters is generated and compiled on a A4 sheet with LaTeX. The paper sheet is then printed, scanned at 75 dpi and saved as PNG in the file [page1.png](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png).
+We basically follow the same idea of the [previous project](https://github.com/dario-marvin/MachineLearningDigits). A sequence of 4367 random single lowercase letters is generated and compiled on a A4 sheet with LaTeX. The document is then printed, scanned at 75 dpi and saved as PNG in the file [page1.png](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png).
 
 ### Dataset extraction
-There are a few differences with the ideas we used in the previous analysis: in the case of digits, all the _images_ were equally tall accross all digits, so the mean pixel value over the row was a practical idea. Here instead some letters, such as "t", "l" or "f" are taller than others and protend upward, while some other protend downward instead, such as "p", "q" and "g". In particolar, the letter "j" sticks out in both ways. So the mean pixel value over each row was not appliable here and we used a min pixel value over the whole row instead.
+There are a few differences with the ideas we used in the previous analysis: in the case of digits, all the images were equally tall across all digits, so the mean pixel value over the row was a practical idea. Here instead some letters, such as "t", "l" or "f" are taller than others and protend upward, while some other protend downward instead, such as "p", "q" and "g". In particolar, the letter "j" sticks out in both ways. So the mean pixel value over each row was not appliable here and to detect whether a row contained dark pixels or not we used a min pixel value over the whole row instead. We set at 9 pixels the height of each image, since 5 pixels are used for the central body of the letter, and 2 pixels on both above and below are used for the sticking out part, if present.
 
-Similarly, all digits were also equally spaced in width, while for the letters "w" and "m" are clearly larger than "i" or "l".
-For this, since the larger letters can fit in a 7 pixels wide space, we decided to set universal width 7 pixels for each image. 
-So, in each stripe we also compute the min pixel value for each column until we find some dark pixels, and then we count how many columns in the immediate right also contain dark pixels. With this proceeding we can find the width of every letter and since the spaces between letters are usually composed of at least 3 clear columns and each letter is composed of at least 2 columns, we can fill the sides of the dark pixels with enough clear columns to reach an aimge of width 7 pixels.   
-
-Also, everytime we find the start of a letter we search on the adjacent right columns if they also contain dark pixels, to finally retrieve how long a letter is. we then fill the sides upon reaching a universal width of 7 pixels for every letter image.
+Similarly, all digits were also equally wide, while the letters "w" and "m" are clearly larger than "i" or "l". Since the larger letters can fit in a 7 pixels wide space, we decided to set universal width 7 pixels for each image. 
+So, in each stripe we also compute the min pixel value for each column until we find some dark pixels, and then we count how many columns in the immediate right also contain dark pixels. With this process we can find the width of every letter and since the space between letters is usually composed of 3 clear columns and each letter is composed of at least 2 columns, we can fill the sides of the dark pixels with enough clear columns to reach an imsge of width 7 pixels.   
 
 <p align="center">
   <img src="https://github.com/dario-marvin/MachineLearningLetters/blob/master/all_letters.png">
