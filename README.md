@@ -123,7 +123,7 @@ avg / total       0.99      0.99      0.99      1000
 
 Most of these images are missclassified because they show an alternance of clear and dark pixels, and because they are shifted one pixel lower than the usual image.  
 These defects are most likely caused by the scan not being perfectly aligned horizontally, and thus some letters are displaced a bit lower than the center of the pixels stripe. This however didn't stop the predictor from working efficiently, as the slightly misplaced images in the dataset are relatively frequent, but they still get correctly recognized in most cases.  
-When we will analyze complete words in the near future, such problems should not occur, since we will go word by word and so tremendous pixel shifts in height should not occur.  
+When we will analyze complete words in the near future, such problems should not occur, since we will analyze the text word by word, letter by letter and so tremendous pixel shifts in height should not occur in the middle of a word.  
 
 ## Conclusion and future works
 Extending the problem from to digits to letters still resulted in an overall good performance. The next step will be to find a way to analyze complex phrases by firstly separating each word into its composing letters and recognizing each one with the methods described here.
