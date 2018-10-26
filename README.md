@@ -129,7 +129,7 @@ When we will analyze complete words in the near future, such problems should not
 Extending the problem from to digits to letters still resulted in an overall good performance. The next step will be to find a way to analyze complex phrases by firstly separating each word into its composing letters and recognizing each one with the methods described here.
 
 ## How to compile and run the codes
-Make sure to have downloaded the files [`page1.png`](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png) and [`sequence_letters.dat`](https://github.com/dario-marvin/MachineLearningLetters/blob/master/sequence_letters.dat) in the same folder along with the two python source code files.  
+Make sure to have downloaded the files [`page1.png`](https://github.com/dario-marvin/MachineLearningLetters/blob/master/page1.png) and [`sequence_letters.dat`](https://github.com/dario-marvin/MachineLearningLetters/blob/master/sequence_letters.dat) in the same folder along with the [python source code file](https://github.com/dario-marvin/MachineLearningLetters/blob/master/letters_recognizer.py).  
 Open a terminal and navigate to your folder with the command `cd`, then run the command
 ```
 python3 letters_recognizer.py
